@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import Instrument from './Instrument';
+import audioPath from '../../../sounds/clap.wav';
 
 class Clap extends Component {
 
-  play(keyCode) {
-    if (this.props.keyCode === keyCode) {
-      console.log('playing Clap');
-    }
+  constructor(props) {
+    super(props);
+    this.audio = new Audio(audioPath);
   }
 
   render() {
-    return (
-      <div>
-        <Instrument {...this.props} />
-        <audio data-key={this.props.keyCode} src={this.props.soundFilePath || '../../sounds/clap.wav'}></audio>
-      </div>
-    );
+    if (this.props.isPlaying) {
+      this.audio.currentTime = 0;
+      this.audio.play()
+    }
+    return <Instrument {...this.props} />;
   }
 
 }

@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
 import Instrument from './Instrument';
-import boomPath from '../../../sounds/boom.wav';
+import audioPath from '../../../sounds/boom.wav';
 
 class Boom extends Component {
 
   constructor(props) {
     super(props);
-    this.audio = new Audio(boomPath);
-  }
-
-  play(keyCode) {
-    if (this.props.keyCode === keyCode) {
-      console.log('playing Boom');
-      this.audio.currentTime = 0;
-      this.audio.play()
-    }
+    this.audio = new Audio(audioPath);
   }
 
   render() {
-    return (
-      <div>
-        <Instrument {...this.props} />
-      </div>
-    );
+    if (this.props.isPlaying) {
+      this.audio.currentTime = 0;
+      this.audio.play()
+    }
+    return <Instrument {...this.props} />;
   }
 
 }
