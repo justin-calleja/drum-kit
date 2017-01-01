@@ -1,3 +1,9 @@
+Refer to [Javascript30](https://github.com/wesbos/JavaScript30)'s first challenge.
+
+This repo is just a re-implementation using React only in `react` branch, and React + Redux in `redux` branch.
+
+- - -
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
